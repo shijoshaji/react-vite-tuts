@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import "./user.css";
+import { UserYesOtt, UserNoOtt, UserYesOttTAble } from './UserOtt';
 
 export function UserProfile(props) {
     console.log(props.params);
@@ -15,22 +16,40 @@ export function UserProfile(props) {
                 <b>Premium Subscriber: </b> {String(isPremium).toUpperCase()} <br />
 
                 <br />
-                <div>
+                <>
                     {isPremium ? <div>
                         {ottApps.map((item, index) => (
-                            <div key={index}>
-                                {item.appName} - {String(item.isExpired).toUpperCase()}
-                            </div>
+                            <UserYesOtt key={index} item={item} />
                         ))}
-                    </div> : <p>Condition is false, not rendering content.</p>}
-                </div>
+                    </div> : <UserNoOtt />}
+                </>
+                <>
+                    {
+                        isPremium ?
+                            <UserYesOttTAble data={ottApps} /> :
+                            <UserNoOtt />
+                    }
+
+                </>
             </div >
         </>
     );
 }
 
 UserProfile.propTypes = {
-    params: PropTypes.object.isRequired,
+    // params: PropTypes.object.isRequired,
     // username: PropTypes.string.isRequired
+    params: PropTypes.shape({
+        username: PropTypes.string.isRequired,
+        age: PropTypes.number.isRequired,
+        email: PropTypes.string.isRequired,
+        place: PropTypes.string.isRequired,
+        message: PropTypes.string.isRequired,
+        isPremium: PropTypes.bool.isRequired,
+        ottApps: PropTypes.shape([{
+            appName: PropTypes.string.isRequired,
+            isExpired: PropTypes.bool.isRequired,
+        }]).isRequired
+    }).isRequired
 
 };

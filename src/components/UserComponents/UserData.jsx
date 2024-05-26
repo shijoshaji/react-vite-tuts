@@ -17,7 +17,7 @@ export function UserData(props) {
             },
             {
                 appName: 'Netflix',
-                isExpired: true,
+                isExpired: false,
             },
             {
                 appName: 'Hot Star',

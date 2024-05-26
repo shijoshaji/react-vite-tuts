@@ -1,10 +1,10 @@
-import { UserProfile } from './components/UserProfile';
+import { UserData } from './components/UserData';
 
 export default function App() {
 
     return (
         <div>
-            <UserProfile message="welcome User," />
+            <UserData message="welcome User," />
         </div>
     );
 

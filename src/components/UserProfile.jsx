@@ -1,49 +1,35 @@
 import PropTypes from 'prop-types';
-import { UserInfo } from "./UserInfo";
 
 export function UserProfile(props) {
-    // here the message is from parent i can pass this to child/sibling components
-    let params = {
-        message: props.message,
-        username: 'John',
-        age: 30,
-        email: 'hi@hellow.com',
-        place: 'BLR',
-        isPremium: true,
-        ottApps: [
-            {
-                appName: 'Amazon Prime',
-                isExpired: false,
-            },
-            {
-                appName: 'Netflix',
-                isExpired: true,
-            },
-            {
-                appName: 'Hot Star',
-                isExpired: false,
-            },
-            {
-                appName: 'Zee5',
-                isExpired: true,
-            }
-        ]
-
-    };
+    console.log(props.params);
+    let { username, age, email, place, isPremium, ottApps } = props.params;
     return (
-        <div id="user-profile">
-            {/* User Profiles here */}
-            <span>{props.message}</span><br />
-            {/* age is using {30} where the 30 will be integer and not string */}
+        <>
+            <br />
+            <div>
+                <b>Name: </b> {username}, {props.params.message} <br />
+                <b>Age: </b> {age} <br />
+                <b>Email: </b> {email} <br />
+                <b>Place: </b> {place} <br />
+                <b>Premium Subscriber: </b> {String(isPremium).toUpperCase()} <br />
 
-            {/* <UserInfo username="John C" age={30} email='hi@hellow.com' place='BLR' isPremium={true} /> */}
-            <UserInfo params={params} />
-        </div >
-
+                <br />
+                <div>
+                    {isPremium ? <div>
+                        {ottApps.map((item, index) => (
+                            <div key={index}>
+                                {item.appName} - {String(item.isExpired).toUpperCase()}
+                            </div>
+                        ))}
+                    </div> : <p>Condition is false, not rendering content.</p>}
+                </div>
+            </div>
+        </>
     );
 }
 
 UserProfile.propTypes = {
-    message: PropTypes.string.isRequired,
+    params: PropTypes.object.isRequired,
+    // username: PropTypes.string.isRequired
 
 };

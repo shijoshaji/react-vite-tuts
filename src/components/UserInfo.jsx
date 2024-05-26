@@ -7,7 +7,7 @@ export function UserInfo(props) {
         <>
             <br />
             <div>
-                <b>Name: </b> {username} <br />
+                <b>Name: </b> {username}, {props.params.message} <br />
                 <b>Age: </b> {age} <br />
                 <b>Email: </b> {email} <br />
                 <b>Place: </b> {place} <br />

@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import { UserInfo } from "./UserInfo";
 
 export function UserProfile(props) {
+    // here the message is from parent i can pass this to child/sibling components
     let params = {
+        message: props.message,
         username: 'John',
         age: 30,
         email: 'hi@hellow.com',

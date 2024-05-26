@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import "./user.css";
 
 export function UserProfile(props) {
     console.log(props.params);
@@ -7,9 +8,9 @@ export function UserProfile(props) {
         <>
             <br />
             <div>
-                <b>Name: </b> {username}, {props.params.message} <br />
-                <b>Age: </b> {age} <br />
-                <b>Email: </b> {email} <br />
+                <b style={{ color: 'red', fontSize: '12px' }}>Name: </b> {username}, {props.params.message} <br />
+                <b id='age'>Age: </b> {age} <br />
+                <b className='email'>e-mail: </b> {email} <br />
                 <b>Place: </b> {place} <br />
                 <b>Premium Subscriber: </b> {String(isPremium).toUpperCase()} <br />
 
@@ -23,7 +24,7 @@ export function UserProfile(props) {
                         ))}
                     </div> : <p>Condition is false, not rendering content.</p>}
                 </div>
-            </div>
+            </div >
         </>
     );
 }

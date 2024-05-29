@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { UserProfile } from "./UserProfile";
+import { LoginForm } from './LoginForm';
+import { Registeration } from './Registeration';
 
 export function UserData(props) {
     // here the message is from parent i can pass this to child/sibling components
@@ -38,6 +40,13 @@ export function UserData(props) {
 
             {/* <UserInfo username="John C" age={30} email='hi@hellow.com' place='BLR' isPremium={true} /> */}
             <UserProfile params={params} />
+
+
+            <LoginForm />
+            <br /><br /><br />
+            <hr />
+
+            <Registeration />
         </div >
 
     );

@@ -16,13 +16,13 @@ export function UserProfile(props) {
                 <b>Premium Subscriber: </b> {String(isPremium).toUpperCase()} <br />
 
                 <br />
-                <>
+                {/* <>
                     {isPremium ? <div>
                         {ottApps.map((item, index) => (
                             <UserYesOtt key={index} item={item} />
                         ))}
                     </div> : <UserNoOtt />}
-                </>
+                </> */}
                 <>
                     {
                         isPremium ?
